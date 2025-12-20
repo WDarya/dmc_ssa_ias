@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Lesson5"
 include(":app")
- 
+include(":accelerator")

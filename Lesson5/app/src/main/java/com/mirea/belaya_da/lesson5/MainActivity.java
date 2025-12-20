@@ -1,54 +1,59 @@
 package com.mirea.belaya_da.lesson5;
 
-import androidx.appcompat.app.AppCompatActivity;
-import android.content.Context;
 import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
-import java.util.ArrayList;
-import java.util.HashMap;
-import android.widget.ListView;
-import java.util.List;
-import android.widget.SimpleAdapter;
+import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
-// Если используете View Binding, добавьте эту строку:
-import com.mirea.belaya_da.lesson5.databinding.ActivityMainBinding;
-
-public class MainActivity extends AppCompatActivity {
-
-    private ActivityMainBinding binding;
+public class MainActivity extends AppCompatActivity implements SensorEventListener {
+    private SensorManager sensorManager;
+    private Sensor accelerometer;
+    private TextView azimuthTextView, pitchTextView, rollTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
-        // Инициализируем View Binding
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 
-        SensorManager sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        List<Sensor> sensors = sensorManager.getSensorList(Sensor.TYPE_ALL);
-        ListView listSensor = binding.listView;
+        azimuthTextView = findViewById(R.id.textViewAzimuth);
+        pitchTextView = findViewById(R.id.textViewPitch);
+        rollTextView = findViewById(R.id.textViewRoll);
+    }
 
-        // Создаем список для отображения в ListView найденных датчиков
-        ArrayList<HashMap<String, Object>> arrayList = new ArrayList<>();
+    @Override
+    protected void onResume() {
+        super.onResume();
+        sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
+    }
 
-        for (int i = 0; i < sensors.size(); i++) {
-            HashMap<String, Object> sensorTypeList = new HashMap<>();
-            sensorTypeList.put("Name", sensors.get(i).getName());
-            sensorTypeList.put("Value", sensors.get(i).getMaximumRange());
-            arrayList.add(sensorTypeList);
+    @Override
+    protected void onPause() {
+        super.onPause();
+        sensorManager.unregisterListener(this);
+    }
+
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+        if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
+            float x = event.values[0];
+            float y = event.values[1];
+            float z = event.values[2];
+            azimuthTextView.setText(String.format("Azimuth: %.2f", x));
+            pitchTextView.setText(String.format("Pitch: %.2f", y));
+            rollTextView.setText(String.format("Roll: %.2f", z));
         }
+    }
 
-        // Создаем адаптер и устанавливаем тип адаптера - отображение двух полей
-        SimpleAdapter mHistory = new SimpleAdapter(
-                this,
-                arrayList,
-                android.R.layout.simple_list_item_2,
-                new String[]{"Name", "Value"},
-                new int[]{android.R.id.text1, android.R.id.text2}
-        );
-
-        listSensor.setAdapter(mHistory);
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+        // Не используется
     }
 }
