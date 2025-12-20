@@ -5,7 +5,7 @@ plugins {
 android {
     namespace = "com.mirea.belaya_da.favoritebook"
     compileSdk {
-        version = release(33)
+        version = release(36)
     }
 
     defaultConfig {

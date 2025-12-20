@@ -26,14 +26,14 @@
         android:text="Цитата из книги"
         android:textSize="16sp"
         android:textStyle="italic"
-        android:textColor="@color/grуут" />
+        android:textColor="@color/green" />
 
     <!-- Разделитель -->
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginVertical="16dp"
-        android:background="@color/gray" />
+        android:background="@color/green" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -82,6 +82,6 @@
         android:layout_height="wrap_content"
         android:text="Отправить данные"
         android:onClick="sendUserData"
-        android:backgroundTint="@color/идгу_500" />
+        android:backgroundTint="@color/blue_500" />
 
 </LinearLayout>
