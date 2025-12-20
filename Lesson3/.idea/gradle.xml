@@ -11,8 +11,12 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/app/simplefragmentapp" />
+            <option value="$PROJECT_DIR$/app/systemintentsapp" />
             <option value="$PROJECT_DIR$/favoritebook" />
+            <option value="$PROJECT_DIR$/favoritebook/simplefragmentapp" />
             <option value="$PROJECT_DIR$/intentapp" />
+            <option value="$PROJECT_DIR$/simplefragmentapp" />
             <option value="$PROJECT_DIR$/systemintentsapp" />
           </set>
         </option>
