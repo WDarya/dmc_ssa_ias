@@ -13,7 +13,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.mirea.tyurkinaia.lesson3.databinding.ActivitySecondBinding;
+import com.mirea.belaya_da.lesson3.databinding.ActivitySecondBinding;
 
 public class SecondActivity extends AppCompatActivity {
 
