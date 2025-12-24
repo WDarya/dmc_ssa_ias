@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
         initViews();
 
-        // Попробуем загрузить сохраненные данные при запуске
+        // Загружаем из
         loadFromFile();
 
         buttonSave.setOnClickListener(new View.OnClickListener() {
@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
             fis.read(bytes);
             String content = new String(bytes);
 
-            // Парсим содержимое файла
+            // Парсим  файл
             String[] lines = content.split("\n");
             if (lines.length >= 3) {
                 String date = lines[0].replace("Памятная дата: ", "");
@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
                 textViewStatus.setText("Данные загружены из файла");
             }
         } catch (IOException e) {
-            // Файл не существует - это нормально при первом запуске
+
         }
     }
 }
