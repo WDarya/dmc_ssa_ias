@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">База супер-героев</string>
+    <string name="add_hero">Добавить героя</string>
+    <string name="show_all">Показать всех</string>
+    <string name="filter_marvel">Marvel</string>
+    <string name="filter_dc">DC</string>
+    <string name="filter_strongest">Топ-3</string>
+</resources>
