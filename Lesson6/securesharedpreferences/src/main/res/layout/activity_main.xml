@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center_horizontal"
+    android:background="#FAF3E0"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Портрет Пушкина"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#5D4037"
+        android:layout_marginBottom="32dp"
+        android:drawablePadding="8dp"
+        android:drawableStart="@android:drawable/ic_lock_lock" />
+
+    <!-- Контейнер для фото с рамкой -->
+    <FrameLayout
+        android:layout_width="240dp"
+        android:layout_height="320dp"
+        android:layout_marginBottom="24dp">
+
+        <!-- Рамка -->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/photo_frame"
+            android:scaleType="fitXY" />
+
+        <!-- Фото Пушкина -->
+        <ImageView
+            android:id="@+id/imageViewPoet"
+            android:layout_width="200dp"
+            android:layout_height="250dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/pushkin"
+            android:padding="2dp"/>
+
+
+    </FrameLayout>
+
+    <!-- Информация о поэте -->
+    <TextView
+        android:id="@+id/textViewPoetName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Александр Сергеевич Пушкин"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#3E2723"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/textViewPoetInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1799 — 1837\nВеликий русский поэт"
+        android:textSize="16sp"
+        android:textAlignment="center"
+        android:textColor="#5D4037"
+        android:lineSpacingExtra="4dp"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Статус защиты -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Защита данных:"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#2E7D32"
+            android:drawablePadding="8dp"
+            android:drawableStart="@android:drawable/ic_secure"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/textViewEncrypted"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="✓ Портрет и данные защищены\n✓ Используется AES-256 шифрование\n✓ Файл: secure_portrait_prefs.xml"
+            android:textSize="12sp"
+            android:textColor="#4CAF50"
+            android:lineSpacingExtra="2dp" />
+
+    </LinearLayout>
+
+</LinearLayout>
