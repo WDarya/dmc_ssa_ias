@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.google.gms.google.services)
 }
 
 android {
@@ -34,6 +35,11 @@ android {
     buildFeatures {
         viewBinding = true
     }
+    packagingOptions {
+        jniLibs {
+            useLegacyPackaging = true // Принудительно сжимать .so файлы
+        }
+    }
 }
 
 dependencies {
@@ -52,4 +58,15 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
     implementation("androidx.work:work-runtime:2.9.0")
     implementation("com.google.android.material:material:1.9.0")
+    implementation("com.yandex.android:maps.mobile:4.26.1-full")
+// Яндекс.Карты
+    implementation("org.osmdroid:osmdroid-android:6.1.16")
+// OpenStreetMap
+    implementation("androidx.preference:preference:1.2.0")
+    implementation("androidx.security:security-crypto:1.1.0-alpha06")
+// EncryptedSharedPreferences
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.google.firebase:firebase-auth:23.0.0")
+    implementation("com.google.firebase:firebase-bom:32.0.0")
 }

@@ -59,4 +59,20 @@
         android:name="com.mirea.belaya_da.mireaproject.MicrophoneFragment"
         android:label="Аудио-заметки"
         tools:layout="@layout/fragment_microphone" />
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.mirea.belaya_da.mireaproject.ui.profile.ProfileFragment"
+        android:label="Профиль" />
+    <fragment
+        android:id="@+id/nav_files"
+        android:name="com.mirea.belaya_da.mireaproject.ui.profile.FilesFragment"
+        android:label="Работа с файлами" />
+    <fragment
+        android:id="@+id/nav_places"
+        android:name="com.mirea.belaya_da.mireaproject.ui.places.PlacesFragment"
+        android:label="Заведения" />
+    <fragment
+        android:id="@+id/nav_network"
+        android:name="com.mirea.belaya_da.mireaproject.ui.network.NetworkFragment"
+        android:label="Сеть" />
 </navigation>

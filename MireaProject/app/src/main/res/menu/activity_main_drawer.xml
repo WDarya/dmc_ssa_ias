@@ -42,5 +42,21 @@
             android:id="@+id/nav_microphone"
             android:icon="@drawable/ic_microphone"
             android:title="Аудио-заметки" />
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_profile"
+            android:title="Профиль" />
+        <item
+            android:id="@+id/nav_files"
+            android:icon="@drawable/ic_files"
+            android:title="Работа с файлами" />
+        <item
+            android:id="@+id/nav_places"
+            android:icon="@drawable/ic_places"
+            android:title="Заведения" />
+        <item
+            android:id="@+id/nav_network"
+            android:icon="@drawable/ic_network"
+            android:title="Сеть" />
     </group>
 </menu>
